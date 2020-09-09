@@ -9,7 +9,7 @@ def rec(func):
             result = func(*args, **kwargs)
             with open(file_name, 'w') as f:
                 file_out = json.load(f)
-                f.write(str(result))
+                file_out.write(str(result))
             return result
         return wrapped
     return decorator

@@ -1,23 +1,21 @@
 import json
 import functools
 
-
-def rec(func):
+def rec(func): # декоратор должен расширять функционал
     @functools.wraps(func)
     def decorator(func):
         def wrapped(*args, **kwargs):
             result = func(*args, **kwargs)
             with open(file_name, 'w') as f:
-                file_out = json.load(f)
-                f.write(str(result))
+                json.dump(result, f)
             return result
         return wrapped
     return decorator
 
-@rec('comp.json')
+@rec
 def comparison(*args):
     return max(args)
 
 
-
+print(comparison(["dfgh", "fghfghjj"]))
 print(comparison.__name__)
