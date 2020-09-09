@@ -15,7 +15,7 @@ def rec(func): # декоратор должен расширять функци
 
 @rec('sw_comp.json')
 def comparison(*args):
-    return max(args)
+    return max(*args)
 
 
 print(comparison(["dfgh", "fghfghjj"]))
